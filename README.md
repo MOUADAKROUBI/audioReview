@@ -1,1 +1,1 @@
-npm i >> npm run dev
+npm i >cd backend> npm run dev
