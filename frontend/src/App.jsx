@@ -1,5 +1,8 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import DropFileInput from "./components/drop-file-input/DropFileInput";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfService from "./components/TermsOfService";
 
 function App() {
   const onFileChange = (files) => {
@@ -7,13 +10,15 @@ function App() {
   };
 
   return (
-    <div className="box w-[60vw]">
-      <div class="code-input">
-        <textarea placeholder="Enter your code here"><span class="important-tag">import</span> { </textarea>
-      </div>
-      <h2 className="header">drag and drop a audio or click to upload it</h2>
-      <DropFileInput onFileChange={(files) => onFileChange(files)} />
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<DropFileInput onFileChange={(files) => onFileChange(files)} />} />
+          <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/termsOfService" element={<TermsOfService />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

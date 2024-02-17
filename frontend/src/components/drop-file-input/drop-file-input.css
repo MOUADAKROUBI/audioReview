@@ -1,6 +1,5 @@
 .drop-file-input {
     position: relative;
-    width: 400px;
     height: 200px;
     border: 2px dashed var(--border-color);
     border-radius: 20px;
@@ -36,6 +35,7 @@
 
 .drop-file-input__label img {
     width: 100px;
+    margin: auto;
 }
 
 .drop-file-preview {
@@ -118,6 +118,11 @@
     border-right: none;
     animation: identifier 1s linear infinite;
     margin: 0 auto;
+}
+
+.links a {
+    color: #a2afbe;
+    margin: 0 5px;
 }
 
 @keyframes identifier {
