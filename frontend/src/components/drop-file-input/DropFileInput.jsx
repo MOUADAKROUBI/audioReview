@@ -15,6 +15,7 @@ import {
 } from "firebase/storage";
 import { Sandpack } from "@codesandbox/sandpack-react";
 import { Link } from "react-router-dom";
+import LinearProgress from '@mui/material/LinearProgress';
 
 const DropFileInput = (props) => {
   const wrapperRef = useRef(null);
@@ -100,6 +101,12 @@ const DropFileInput = (props) => {
 
   return (
     <>
+      {
+        loading &&
+        <div className="w-full rounded">
+          <LinearProgress />
+        </div>
+      }
       <div className="box w-[60vw] text-center">
         <h2 className="header">drag and drop a audio or click to upload it</h2>
         <div
@@ -117,16 +124,6 @@ const DropFileInput = (props) => {
         </div>
         {/* display loading */}
         <p className="drop-file-preview__title">Ready to upload</p>
-        {loading && (
-          <div
-            className="inline-block h-12 w-12 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
-            role="status"
-          >
-            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-              Loading...
-            </span>
-          </div>
-        )}
         {fileList.length > 0 ? (
           <div className="drop-file-preview">
             {fileList.map((item, index) => (
