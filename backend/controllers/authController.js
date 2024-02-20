@@ -56,18 +56,18 @@ const redirect = async (req, res) => {
     if (accessToken) {
       // const lfAccountID = await getAccountIDFromLightfunnles(accessToken);
       // check if the account is already in the database
-      // const q = query(collection(db, "accounts"), where("lf_token", "==", accessToken));
+      const q = query(collection(db, "accounts"), where("lf_token", "==", accessToken));
 
-      // const querySnapshot = await getDocs(q);
-      // if (querySnapshot.size === 0) {
-      //   // if the account is not in the database, add it
-      //   await addDoc(collection(db, "accounts"), {
-      //     lf_id: response.data.account_id,
-      //     audios: [],
-      //     lf_token: accessToken,
-      //     status: "INSTALLED",
-      //   });     
-      // }
+      const querySnapshot = await getDocs(q);
+      if (querySnapshot.size === 0) {
+        // if the account is not in the database, add it
+        await addDoc(collection(db, "accounts"), {
+          lf_id: response.data.account_id,
+          audios: [],
+          lf_token: accessToken,
+          status: "INSTALLED",
+        });     
+      }
     }
 
     // create a jwt access token
