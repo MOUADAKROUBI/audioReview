@@ -103,7 +103,7 @@ const DropFileInput = (props) => {
     <>
       {
         loading &&
-        <div className="w-full rounded">
+        <div className="w-full">
           <LinearProgress />
         </div>
       }
