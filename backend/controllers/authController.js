@@ -2,7 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
 const { db } = require("../firebase.js");
-const { collection, getDocs, query, where } = require("firebase/firestore");
+const { collection, getDocs, query, where, addDoc } = require("firebase/firestore");
 
 const lfClientID = process.env.LF_CLIENT_ID;
 const lfClientSecret = process.env.LF_CLIENT_SECRET;
